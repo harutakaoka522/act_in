@@ -39,10 +39,6 @@ https://cacoo.com/diagrams/uujpqwMntAeHaqht/FCBAB
 ## 画面ワイヤーフレーム
 https://cacoo.com/diagrams/gWs8ltM39GqSr4TR/E1770
 
-## 全ドキュメント
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml
-
-
 ## 使用予定Gem
 * 後ほど記載
 * 'carrierwave'
