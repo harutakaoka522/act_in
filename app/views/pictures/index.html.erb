@@ -1,0 +1,30 @@
+<body>
+<div class="wrapper">
+<header>
+<h1>Picture List</h1>
+<%= link_to '写真を投稿する', new_picture_path ,class: 'btn-square-so-pop2'%>
+
+<h3 id="notice"><%= notice %></h3>
+
+</header>
+
+  <div>
+    <% @pictures.each do |picture| %>   
+      <div>
+      <p><%= image_tag picture.image.url, :size =>'378x318'%></p>
+        <h2>投稿者: <%= picture.user.name %></h2>
+        <h2>タイトル: <%= picture.image_title %></h2>
+        <h2>内容: <%= picture.image_content %></h2>
+        <p><%= link_to '確認', picture ,class: 'btn-square-so-pop3'%>
+
+        <% if current_user.id == picture.user.id %>
+        <%= link_to '編集', edit_picture_path(picture) ,class: 'btn-square-so-pop'%>
+        <%= link_to '削除', picture, method: :delete, data: { confirm: '削除しますか?' } ,class: 'btn-square-so-pop1'%></p>
+      <% end %>
+      </div>
+ 
+  <% end %>
+  </div>
+
+  </div>
+</body>
