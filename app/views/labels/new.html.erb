@@ -1,0 +1,26 @@
+<%= form_for @label do |form| %>
+    <% if @label.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @label.errors.count %>件のエラーがあります。</h2>
+        <% @label.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class = "label_new">
+      <%= form_with(model: @label, local: true) do |form| %>
+        <div class="label_title">
+          <%= form.label :label_title %>
+          <br>
+          <%= form.text_field :label_title %>
+        </div>
+        <%= form.submit %>
+      <% end %>
+  </div>
+  
+  <h3>ラベル一覧</h3>
+  <% @labels.each do |label| %>
+    <%= label.label_title %>
+    <td><%= link_to '削除',  new_label_path(label.id), method: :delete %></td>
+    <% end %>

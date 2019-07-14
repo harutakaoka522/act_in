@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_13_094104) do
+ActiveRecord::Schema.define(version: 2019_07_14_070546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "labels", force: :cascade do |t|
+    t.string "label_title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "picture_labels", force: :cascade do |t|
+    t.bigint "picture_id"
+    t.bigint "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["label_id"], name: "index_picture_labels_on_label_id"
+    t.index ["picture_id"], name: "index_picture_labels_on_picture_id"
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.string "image_title"
@@ -35,5 +50,7 @@ ActiveRecord::Schema.define(version: 2019_07_13_094104) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "picture_labels", "labels"
+  add_foreign_key "picture_labels", "pictures"
   add_foreign_key "pictures", "users"
 end
