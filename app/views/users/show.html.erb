@@ -6,6 +6,7 @@
 <p>あなたの写真を投稿しよう！</p>
 <% end %>
 
-<%= link_to '編集', edit_user_path(@user) ,class: 'btn-square-so-pop'%> 
+<%= link_to '編集', edit_user_path(@user) ,remote: true,class: 'btn-square-so-pop'%> 
 <%= link_to '写真一覧', pictures_path ,class: 'btn-square-so-pop2'%> 
-<%= link_to '写真を投稿する', new_picture_path ,class: 'btn-square-so-pop3'%>
+<%= link_to 'ラベルを作成する', new_label_path ,class: 'btn-square-so-pop3'%>
+<div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

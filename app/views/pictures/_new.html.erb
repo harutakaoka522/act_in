@@ -1,10 +1,13 @@
-<%= form_with(model: picture, local: true) do |form| %>
-    <% if picture.errors.any? %>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+
+<%= form_with(model: @picture, local: true) do |form| %>
+    <% if @picture.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
   
         <ul class="ten-non">
-        <% picture.errors.full_messages.each do |message| %>
+        <% @picture.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
@@ -13,7 +16,12 @@
     <% end %>
     
     <%= form_with(model: @picture, local: true) do |form| %>
-
+      <div class="modal-header">
+      <h5 class="modal-title">Picture new</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
     <div class="field">
       <h2><%= form.label :image_title %></h2>
       <%= form.text_field :image_title, id: :picture_image_title %>
@@ -39,3 +47,5 @@
     </div>
     <br>
   <% end %>
+  </div>
+  </div>
