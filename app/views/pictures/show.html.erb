@@ -1,0 +1,28 @@
+<body>
+<div class="wrapper">
+<header>
+<h1>picture</h1>
+<% if @picture.user_id == current_user.id %>
+<%= link_to '編集', edit_picture_path(@picture) ,class: 'btn-square-so-pop2'%>
+<% end %>
+<%= link_to '一覧に戻る', pictures_path ,class: 'btn-square-so-pop3'%>
+<%= link_to '投稿する', new_picture_path ,class: 'btn-square-so-pop4'%><br>
+
+<h3 id="notice"><%= notice %></h3>
+
+</header>
+<br>
+<br>
+<h2>タイトル: 
+  <%= @picture.image_title %>
+</h2>
+<p><%= image_tag @picture.image.url, :size =>'378x318'%>
+</p>
+<h2>投稿者: 
+<%= @picture.user.name %>
+</h2>
+<h2>コンテント: 
+  <%= @picture.image_content %>
+</h2>
+
+</body>

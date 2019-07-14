@@ -1,0 +1,41 @@
+<%= form_with(model: picture, local: true) do |form| %>
+    <% if picture.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
+  
+        <ul class="ten-non">
+        <% picture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+    
+    <%= form_with(model: @picture, local: true) do |form| %>
+
+    <div class="field">
+      <h2><%= form.label :image_title %></h2>
+      <%= form.text_field :image_title, id: :picture_image_title %>
+    </div>
+
+
+    <div class="field">
+      <h2><%= form.label :image_content %></h2>
+      <%= form.text_field :image_content, id: :picture_image_content %>
+    </div>
+
+    <div class="field">
+    <h2><%= form.label :image %></h2>
+      <%= image_tag(@picture.image.url, :size =>'378x318') if @picture.image && @picture.image.url%><br>
+  
+      <%= form.file_field :image, id: :picture_image %>
+      <%= form.hidden_field :image_cache %>
+      
+    </div>
+  <br>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    <br>
+  <% end %>

@@ -1,0 +1,39 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Editing User</h1>
+<%= link_to '一覧に戻る', @user ,class: 'btn-square-so-pop2'%><br>
+<%= form_with(model: @user, local: true) do |f| %>  
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %><br>
+  
+    <div class="field">
+    <%= f.label :image %><br>
+    <%= image_tag(@user.user_image.url, :size =>'378x318') if @user.user_image && @user.user_image.url%>
+     <br>
+      
+      <%= f.file_field :user_image, id: :user_image %>
+      <%= f.hidden_field :image_cache %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
