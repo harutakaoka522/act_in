@@ -1,10 +1,50 @@
-<body>
-<div class="wrapper">
-<header>
-<h1>Editing Picture</h1>
-<%= link_to '戻る', @picture ,class: 'btn-square-so-pop2' %>
-<%= link_to '一覧に戻る', pictures_path,class: 'btn-square-so-pop3' %><br>
-</header>
-<%= render 'form', picture: @picture %>
-</div>
-</body>
+<%= form_with(model: @picture, local: true) do |form| %>
+    <% if @picture.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
+  
+        <ul class="ten-non">
+        <% @picture.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% end %>
+    
+    <%= form_with(model: @picture, local: true) do |form| %>
+      <div class="modal-header">
+      <h5 class="modal-title">Picture edit</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+    <div class="field">
+      <h2><%= form.label :image_title %></h2>
+      <%= form.text_field :image_title, id: :picture_image_title %>
+    </div>
+
+
+    <div class="field">
+      <h2><%= form.label :image_content %></h2>
+      <%= form.text_field :image_content, id: :picture_image_content %>
+    </div>
+
+    <div class="field">
+    <h2><%= form.label :image %></h2>
+      <%= image_tag(@picture.image.url, :size =>'378x318') if @picture.image && @picture.image.url%><br>
+  
+      <%= form.file_field :image, id: :picture_image %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+    
+    <% Label.all.each do |label|%>
+        <%= form.check_box :label_ids, {multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id]%>
+        <label style="background-color: aquamarine"><%= label.label_title %></label>
+      <% end %>
+  <br>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+    <br>
+  <% end %>
