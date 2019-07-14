@@ -1,5 +1,6 @@
 class Picture < ApplicationRecord
     belongs_to :user
+    has_many :comments, dependent: :destroy
     has_many :picture_labels, dependent: :destroy
     has_many :labels, through: :picture_labels, source: :label
     #, inverse_of: :picture
