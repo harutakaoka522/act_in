@@ -34,6 +34,14 @@
   <%= @picture.image_content %>
 </h2>
 
+<% if @picture.labels.present? %>
+<h2>ラベル：</h2>
+<% @picture.labels.each do |label| %>
+  <label style="background-color: aquamarine"><%= label.label_title %></label>
+<% end %>
+<% end %>
+
+<br>
 <%= link_to '詳細へ', @picture,class: 'btn-square-so-pop3'%>
 
 </body>
