@@ -24,9 +24,11 @@
 </h2>
 
 <% if @picture.labels.present? %>
-<h2>ラベル：</h2>
+<h2>ラベル：
 <% @picture.labels.each do |label| %>
   <label style="background-color: aquamarine"><%= label.label_title %></label>
-<% end %>
+<% end %></h2>
+<% else %>
+<h2>ラベル：未設定</h2>
 <% end %>
 </body>
