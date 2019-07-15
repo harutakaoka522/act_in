@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorites = current_user.favorites.all
     unless current_user_page?
       redirect_to user_path(id: current_user.id)
     end
-    
   end
 
   def new
