@@ -11,6 +11,10 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @comments = @picture.comments
     @comment = @picture.comments.build
+    @favorite = current_user.favorites.find_by(picture_id: @picture.id)
+   
+    #@favorites = Favorite.where(picture_id: @picture.id).all
+    #binding.pry
   end
 
   def edit
@@ -19,7 +23,6 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-  
     if @picture.save
       redirect_to picture_path(@picture.id), notice: '写真を投稿しました！'
     else

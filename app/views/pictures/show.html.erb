@@ -3,10 +3,18 @@
 <header>
 <h1>picture</h1>
 <% if @picture.user_id == current_user.id %>
-<%= link_to '編集', edit_picture_path(@picture),remote: true, class: 'btn-square-so-pop2' %>
+<%= link_to '編集', edit_picture_path(@picture),remote: true, class: 'btn btn-primary' %>
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <% end %>
-<%= link_to '一覧に戻る', pictures_path ,class: 'btn-square-so-pop3'%>
+<%= link_to '一覧に戻る', pictures_path ,class: 'btn btn-primary'%>
+
+<% unless @picture.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
 
 </header>
 <br>
@@ -32,6 +40,9 @@
 <h2>ラベル：未設定</h2>
 <% end %>
 
+
+
+<h2>コメントする</h2>
 <div id="comments_area">
 <%= render partial: 'comments/index', locals: { comments: @comments, picture: @picture } %>
 </div>

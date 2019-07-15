@@ -7,6 +7,7 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
+    @label.user_id = current_user.id
     if @label.save
       redirect_to new_label_path, notice: 'ラベルを作成しました'
     else
@@ -23,6 +24,6 @@ class LabelsController < ApplicationController
   private
 
   def label_params
-    params.require(:label).permit(:label_title, :picture_id)
+    params.require(:label).permit(:label_title, :picture_id, :user_id)
   end
 end
