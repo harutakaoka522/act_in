@@ -1,11 +1,17 @@
 <body>
 <div class="wrapper">
 <header>
+<h2>検索</h2>
+<%= search_form_for @q do |f| %>
+    <%= f.label :image_title_cont, "タイトル検索" %>
+    <%= f.search_field :image_title_cont %>
+    <%= f.submit "検索" %>
+    <% end %>
+    
 <h1>Picture List</h1>
 <%= link_to '写真を投稿する',new_picture_path ,remote: true, class: 'btn btn-success' %>
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <h3 id="notice"><%= notice %></h3>
-
 </header>
 
   <div>
