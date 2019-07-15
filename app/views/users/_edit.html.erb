@@ -12,22 +12,21 @@
 <% end %>
 
 <div class="modal-header">
-<h1>Editing User</h1>
+<h1>ユーザーの編集</h1>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
 
-<%= link_to '一覧に戻る', @user ,class: 'btn-square-so-pop2'%><br>
 <%= form_with(model: @user, local: true) do |f| %>  
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
   
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
   
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
   
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br>
@@ -40,9 +39,11 @@
       <%= f.file_field :user_image, id: :user_image %>
       <%= f.hidden_field :image_cache %>
     </div>
-  
+    <br>
+    <div class="modal-footer">
     <div class="actions">
-      <%= f.submit %>
+    <%= f.submit "更新する", class: 'btn btn-success' %>
+    </div>
     </div>
   <% end %>
   </div>

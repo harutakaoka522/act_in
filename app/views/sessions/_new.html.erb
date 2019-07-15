@@ -2,11 +2,12 @@
   <div class="modal-content">
 
 <div class="modal-header">
-<h5 class="modal-title">Log in</h5><br>
+<h5 class="modal-title">ログイン</h5><br>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
+<div class="modal-body">
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
   <%= f.label :メールアドレス %><br>
@@ -14,8 +15,10 @@
 
   <%= f.label :パスワード %><br>
   <%= f.password_field :password %><br>
-
+  <br>
+  <div class="modal-footer">
   <%= f.submit "ログイン", class: 'btn btn-primary' %>
+  </div>
 <% end %>
 </div>
 </div>
