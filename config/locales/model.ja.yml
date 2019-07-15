@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    models:
+      picture: 写真
+      user: ユーザー
+      comment: コメント
+      favorite: お気に入り
+      label: ラベル
+    attributes:
+      picture:
+        image_title: タイトル
+        image: 写真
+        image_content: 内容
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+      label:
+        label_title: ラベル名
+      comment:
+        content: コメント
