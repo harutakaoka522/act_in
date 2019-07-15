@@ -2,7 +2,8 @@ class CommentsController < ApplicationController
   def create
     @picture = Picture.find(params[:picture_id])
     @comment = @picture.comments.build(comment_params)
-
+    @comment.user_id = current_user.id
+#binding.pry
     respond_to do |format|
       if @comment.save
         format.js { render :index }
