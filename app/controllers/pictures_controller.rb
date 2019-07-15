@@ -1,6 +1,10 @@
 class PicturesController < ApplicationController
   def index
-   @pictures = Picture.all
+    @q = Picture.ransack(params[:q])
+    @pictures = Picture.all.order('created_at DESC')
+    if params[:q]
+      @pictures = @q.result(distinct: true)
+    end
   end
 
   def new
