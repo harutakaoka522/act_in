@@ -9,6 +9,8 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+    @comments = @picture.comments
+    @comment = @picture.comments.build
   end
 
   def edit
@@ -36,7 +38,6 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
-
     @picture.destroy
       redirect_to pictures_path, notice: '写真を削除しました'
   end

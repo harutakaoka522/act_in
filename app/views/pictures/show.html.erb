@@ -31,4 +31,9 @@
 <% else %>
 <h2>ラベル：未設定</h2>
 <% end %>
+
+<div id="comments_area">
+<%= render partial: 'comments/index', locals: { comments: @comments, picture: @picture } %>
+</div>
+<%= render partial: 'comments/form', locals: { comment: @comment, picture: @picture } %>
 </body>
