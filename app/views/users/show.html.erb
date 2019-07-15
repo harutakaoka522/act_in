@@ -6,19 +6,18 @@
 <p>あなたの写真を投稿しよう！</p>
 <% end %>
 
-<%= link_to '編集', edit_user_path(@user) ,remote: true,class: 'btn-square-so-pop'%> 
-<%= link_to '写真一覧', pictures_path ,class: 'btn-square-so-pop2'%> 
-<%= link_to 'ラベルを作成する', new_label_path ,class: 'btn-square-so-pop3'%>
+<%= link_to '編集', edit_user_path(@user) ,remote: true, class: 'btn btn-success'%> 
+<%= link_to '写真一覧', pictures_path , class: 'btn btn-primary'%> 
+<%= link_to 'ラベルを作成する', new_label_path , class: 'btn btn-success'%>
 
 <h2><%= @user.name %>さんのお気に入り一覧</h2>
 <% @favorites.each do |favorite| %>
     <div class= "field">
+    <p>タイトル：<%= favorite.picture.image_title %><br></p>
     <p>写真：<%= image_tag favorite.picture.image.url, :size =>'378x318'%></p>
         <p>本文：<%= favorite.picture.image_content %><br></p>
-        <%= link_to '詳細を確認', favorite.picture ,class: 'btn-square-so-pop3'%>
+        <%= link_to '詳細を確認', favorite.picture ,class: 'btn btn-primary'%>
     <br>
 <% end %>
-
-
 
 <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
