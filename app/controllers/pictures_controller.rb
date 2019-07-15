@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+
   def index
     @q = Picture.ransack(params[:q])
     @pictures = Picture.all.order('created_at DESC')
@@ -23,6 +24,9 @@ class PicturesController < ApplicationController
 
   def edit
     @picture = Picture.find(params[:id])
+    unless current_user.id == @picture.user.id
+      redirect_to picture_path(@picture.id), notice: '編集権限がありません'
+    end
   end
 
   def create

@@ -8,10 +8,10 @@
     <%= f.submit "検索" %>
     <% end %>
     
-<h1>Picture List</h1>
+<h1>投稿写真リスト</h1>
 <%= link_to '写真を投稿する',new_picture_path ,remote: true, class: 'btn btn-success' %>
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-<h3 id="notice"><%= notice %></h3>
+
 </header>
 
   <div>
@@ -32,10 +32,9 @@
         <p><%= link_to '確認', picture ,remote: true, class: 'btn btn-primary'%>
 
         <% if current_user.id == picture.user.id %>
-        <%= link_to '削除', picture, method: :delete, data: { confirm: '削除しますか?' } , class: 'btn btn-danger' %></p>
+        <%= link_to "削除", picture, method: :delete, data: { confirm: "本当に削除してよろしいですか？","commit" => "削除する","cancel" => "やっぱりやめる",}, title: "削除の確認" , class: 'btn btn-danger'%>
       <% end %>
       </div>
- 
   <% end %>
   </div>
   </div>

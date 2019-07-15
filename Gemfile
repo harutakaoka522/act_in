@@ -18,6 +18,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
+gem 'data-confirm-modal'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
