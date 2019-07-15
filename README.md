@@ -23,6 +23,8 @@ Rails 5.2.3
   - [ ] コメントは複数回投稿が可能
 - [ ] 写真へのラベル機能
   - [ ] ラベルは複数回貼り付けが可能
+- [ ] 写真へのお気に入り機能
+  - [ ] お気に入りは複数可能
 
 
 ## カタログ設計（テーブル一覧含む）
@@ -35,9 +37,6 @@ https://cacoo.com/diagrams/86eGmDCOdGpXCmWt/B9DBD
 ## 画面遷移図
 https://cacoo.com/diagrams/uujpqwMntAeHaqht/FCBAB
 
-
-## 画面ワイヤーフレーム
-https://cacoo.com/diagrams/gWs8ltM39GqSr4TR/E1770
 
 ## 使用予定Gem
 * 後ほど記載
