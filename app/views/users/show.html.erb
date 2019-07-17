@@ -1,7 +1,9 @@
 <html>
 <body>
 <div>
-<h1>こんにちは <%= @user.name %>さん</h1>
+<div class="modal-header">
+<h5 class="modal-title"><%= @user.name %>さんのページ</h5>
+</div>
 <p>メールアドレス:<br><%= @user.email %></p>
 <% if @user.user_image.url %>
 <p>ユーザーイメージ:<br><%= image_tag @user.user_image.url, :size =>'378x318'%></p>
@@ -11,7 +13,9 @@
 
 <%= link_to '編集', edit_user_path(@user) ,remote: true, class: 'btn btn-success'%> 
 
-<h2><br>お気に入り一覧<br></h2>
+<div class="modal-header">
+<h5 class="modal-title">お気に入り一覧</h5>
+</div>
 <% @favorites.each do |favorite| %>
 <div> 
 <ul>
