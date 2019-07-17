@@ -8,10 +8,15 @@ class LabelsController < ApplicationController
   def create
     @label = Label.new(label_params)
     @label.user_id = current_user.id
-    if @label.save
-      redirect_to new_label_path, notice: 'ラベルを作成しました'
+
+    unless @label.label_title.length >= 10 || @label.label_title.empty?
+      if @label.save
+        redirect_to new_label_path, notice: 'ラベルを作成しました'
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to new_label_path, notice: '1文字以上10文字以内でお願いします。'
     end
   end
 

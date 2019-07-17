@@ -1,27 +1,31 @@
 <html>
 <body>
-<div class='hero4'>
-<h1>こんにちは,<%= @user.name %>さん</h1>
-<p>メールアドレス<%= @user.email %></p>
+<div>
+<h1>こんにちは <%= @user.name %>さん</h1>
+<p>メールアドレス:<br><%= @user.email %></p>
 <% if @user.user_image.url %>
-<p>ユーザーイメージ<%= image_tag @user.user_image.url, :size =>'378x318'%></p>
+<p>ユーザーイメージ:<br><%= image_tag @user.user_image.url, :size =>'378x318'%></p>
 <% else %>
 <p>あなたの写真を投稿しよう！</p>
 <% end %>
 
 <%= link_to '編集', edit_user_path(@user) ,remote: true, class: 'btn btn-success'%> 
-<%= link_to '写真一覧', pictures_path , class: 'btn btn-primary'%> 
-<%= link_to 'ラベルを作成する', new_label_path , class: 'btn btn-success'%>
 
-<h2><%= @user.name %>さんのお気に入り一覧</h2>
+<h2><br>お気に入り一覧<br></h2>
 <% @favorites.each do |favorite| %>
+<div> 
+<ul>
+<li class="favorite-grid">
     <div class= "field">
-    <p>タイトル：<%= favorite.picture.image_title %><br></p>
-    <p>写真：<%= image_tag favorite.picture.image.url, :size =>'378x318'%></p>
-        <p>本文：<%= favorite.picture.image_content %><br></p>
+    <p><%= favorite.picture.image_title %><br></p>
+    <p><%= image_tag favorite.picture.image.url, :size =>'378x318'%></p>
+        <p>content：<%= favorite.picture.image_content %><br></p>
         <%= link_to '確認', favorite.picture ,remote: true,class: 'btn btn-primary'%>
-    <br>
+</li>
+</ul>
 <% end %>
+</div>
+</div>
 
 <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

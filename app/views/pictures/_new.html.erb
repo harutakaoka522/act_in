@@ -23,24 +23,24 @@
       </button>
       </div>
     <div class="field">
-      <h2><%= form.label :image_title %></h2>
+      <%= form.label :image_title %><br>
       <%= form.text_field :image_title, id: :picture_image_title %>
     </div>
 
 
     <div class="field">
-      <h2><%= form.label :image_content %></h2>
+      <%= form.label :image_content %><br>
       <%= form.text_field :image_content, id: :picture_image_content %>
     </div>
 
     <div class="field">
-    <h2><%= form.label :image %></h2>
+    <%= form.label :image %><br>
       <%= image_tag(@picture.image.url, :size =>'378x318') if @picture.image && @picture.image.url%><br>
   
-      <%= form.file_field :image, id: :picture_image %>
+      <%= form.file_field :image, id: :picture_image %><br>
       <%= form.hidden_field :image_cache %>
     </div>
-
+    <br>
     <% Label.all.each do |label|%>
         <%= form.check_box :label_ids, {multiple: true, checked: label[:checked], disabled: label[:disabled], include_hidden: false}, label[:id]%>
         <label style="background-color: aquamarine"><%= label.label_title %></label>

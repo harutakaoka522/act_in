@@ -19,7 +19,6 @@
 
 
 .hero {
-  background-color: #0040C1;
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -27,7 +26,6 @@
 }
 .hero2 {
   text-align:center;
-  background-color: #778cbb;
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -36,7 +34,6 @@
 
 .hero3 {
   text-align:center;
-  background-color: #4c81f5;
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -45,7 +42,6 @@
 
 .hero4 {
   text-align:center;
-  background-color: #4c81f5;
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -233,4 +229,61 @@ nav a:hover {
 .bg-visible {
   top: 0;
   opacity: 1;
+}
+
+.grid{
+  margin: 15px;
+  background-color:#778cbb;
+  float: left;
+  width:425px;
+  height:550px;
+  list-style: none;
+  border: 1px dotted #666666;
+}
+
+.favorite-grid{
+  margin: 15px;
+  background-color:#778cbb;
+  float: left;
+  width:425px;
+  height:480px;
+  list-style: none;
+  border: 1px dotted #666666;
+}
+
+.label-grid{
+  margin: 15px;
+  float: left;
+  height:80px;
+  width:90px;
+  list-style: none;
+}
+
+
+
+body{
+  text-align: center;
+  padding-bottom:30px;
+  width:100%;
+  height:100%;
+  background: linear-gradient(90deg, rgba(22, 135, 237, 0.6), rgba(20, 55, 90, 0.9));
+  background-size:cover;
+  margin-top:30px;
+}
+
+.picture_show{
+  padding-top:20px;
+  list-style: none;
+  float:left;
+  width:50%;
+  height:100%;
+  padding-bottom:100px;
+}
+#comments_area{
+  padding-top:20px;
+  list-style: none;
+  float:right;
+  width:50%;
+  height:100%;
+  padding-bottom:100px;
 }
