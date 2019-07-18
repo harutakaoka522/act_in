@@ -9,7 +9,7 @@ class LabelsController < ApplicationController
     @label = Label.new(label_params)
     @label.user_id = current_user.id
 
-    unless @label.label_title.length >= 10 || @label.label_title.empty?
+    unless @label.label_title.length > 11 || @label.label_title.empty?
       if @label.save
         redirect_to new_label_path, notice: 'ラベルを作成しました'
       else
