@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    render 'new'
+  end
+
   def show
     @user = User.find(params[:id])
     @favorites = current_user.favorites.all
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-end
+  end
 
 def update
   @user = User.find(params[:id])

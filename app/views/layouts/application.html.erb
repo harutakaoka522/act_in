@@ -15,10 +15,22 @@
   <% end %>
 
   <% if logged_in? %>
-    <%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-primary' %>
-    <%= link_to "ログアウト", session_path(current_user.id), method: :delete, class: 'btn btn-danger'%>
+  <header>
+    <nav>
+      <div class="nav-bg"></div>
+        <ul>
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+          <li><%= link_to 'フォト', pictures_path %></li>
+          <li><%= link_to 'ラベル', new_label_path %></li>
+          <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+　      </ul>
+    </nav>
+  </header>
   <% end %>
 
+
+<footer>
+</footer>
     <%= yield %>
   </body>
 </html>

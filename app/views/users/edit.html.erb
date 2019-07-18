@@ -1,6 +1,8 @@
+<html>
+<body>
 <% if @user.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+    <h2><%= pluralize(@user.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！</h2>
     <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -9,17 +11,19 @@
   </div>
 <% end %>
 
-<h1>ユーザーの編集</h1>
+<div class="modal-header">
+<h5 class="modal-title">ユーザー情報の編集</h5>
+</div>
 <%= link_to '戻る', @user , class: 'btn btn-success' %><br>
 <%= form_with(model: @user, local: true) do |f| %>  
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
   
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
   
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
   
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %><br>
@@ -37,3 +41,5 @@
     <%= f.submit "更新する", class: 'btn btn-success' %>
     </div>
   <% end %>
+  </body>
+  </html>

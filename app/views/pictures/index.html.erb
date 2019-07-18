@@ -1,41 +1,45 @@
+<html>
 <body>
-<div class="wrapper">
-<header>
-<h2>検索</h2>
+<div class='picture'>
+<div class="modal-header">
+<h5 class="modal-title">投稿写真リスト</h5>
 <%= search_form_for @q do |f| %>
     <%= f.label :image_title_cont, "タイトル検索" %>
     <%= f.search_field :image_title_cont %>
     <%= f.submit "検索" %>
     <% end %>
+</div>
     
-<h1>投稿写真リスト</h1>
+<br>
 <%= link_to '写真を投稿する',new_picture_path ,remote: true, class: 'btn btn-success' %>
-<div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
-</header>
-
-  <div>
-    <% @pictures.each do |picture| %>   
-      <div>
-      <p><%= image_tag picture.image.url, :size =>'378x318'%></p>
-        <h2>投稿者: <%= picture.user.name %></h2>
-        <h2>タイトル: <%= picture.image_title %></h2>
-        <h2>内容: <%= picture.image_content %></h2>
+<div> 
+    <% @pictures.each do |picture| %>  
+   
+      <ul>
+      <li class="grid">
+      <p><%= picture.image_title %></p>
+      <p><%= image_tag picture.image.url, :size =>'350x318'%></p>
+        <p>投稿者: <%= picture.user.name %>さん</p>
+        
+        <p>本文: <%= picture.image_content %></p>
 
         <% if picture.labels.present? %>
-        <h2>ラベル：
+        <p>ラベル：
         <% picture.labels.each do |label| %><label style="background-color: aquamarine"><%= label.label_title %></label>
-        <% end %></h2>
+        <% end %></p>
         <% else %>
-        <h2>ラベル：未設定</h2>
+        <p>ラベル：none</p>
         <% end %>
         <p><%= link_to '確認', picture ,remote: true, class: 'btn btn-primary'%>
-
         <% if current_user.id == picture.user.id %>
         <%= link_to "削除", picture, method: :delete, data: { confirm: "本当に削除してよろしいですか？","commit" => "削除する","cancel" => "やっぱりやめる",}, title: "削除の確認" , class: 'btn btn-danger'%>
       <% end %>
-      </div>
+      </li>
+      </ul>
   <% end %>
   </div>
   </div>
-</body>
+  <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  </body>
+  </html>

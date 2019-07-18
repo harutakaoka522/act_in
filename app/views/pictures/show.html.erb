@@ -1,7 +1,6 @@
+<html>
 <body>
-<div class="wrapper">
-<header>
-<h1>写真</h1>
+<div class="picture_show">
 <% if @picture.user_id == current_user.id %>
 <%= link_to '編集', edit_picture_path(@picture),remote: true, class: 'btn btn-success' %>
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
@@ -24,27 +23,27 @@
 </h2>
 <p><%= image_tag @picture.image.url, :size =>'378x318'%>
 </p>
-<h2>投稿者: 
-<%= @picture.user.name %>
-</h2>
-<h2>コンテント: 
+<p>投稿者: <br>
+<%= @picture.user.name %>さん
+</p>
+<p>コンテント: <br>
   <%= @picture.image_content %>
-</h2>
+</p>
 
 <% if @picture.labels.present? %>
-<h2>ラベル：
+<p>ラベル：<br>
 <% @picture.labels.each do |label| %>
   <label style="background-color: aquamarine"><%= label.label_title %></label>
-<% end %></h2>
+<% end %></p>
 <% else %>
-<h2>ラベル：未設定</h2>
+<p>ラベル：<br>none</p>
 <% end %>
+<%= render partial: 'comments/form', locals: { comment: @comment, picture: @picture } %>
+</div>
 
 
-
-<h2>コメントする</h2>
 <div id="comments_area">
 <%= render partial: 'comments/index', locals: { comments: @comments, picture: @picture } %>
 </div>
-<%= render partial: 'comments/form', locals: { comment: @comment, picture: @picture } %>
 </body>
+</html>

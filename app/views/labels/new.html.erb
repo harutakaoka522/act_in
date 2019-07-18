@@ -1,3 +1,6 @@
+<html>
+<body>
+<div>
 <%= form_for @label do |form| %>
     <% if @label.errors.any? %>
       <div id="error_explanation">
@@ -8,21 +11,33 @@
       </div>
     <% end %>
   <% end %>
+  <div class="modal-header">
+  <h5 class="modal-title">
   <div class = "label_new">
       <%= form_with(model: @label, local: true) do |form| %>
         <div class="label_title">
           <%= form.label :label_title %>
-          <br>
           <%= form.text_field :label_title %>
-        </div>
         <%= form.submit "登録する", class: 'btn btn-success'%>
       <% end %>
   </div>
-  
-  <h3>ラベル一覧</h3>
+  </h5>
+  </div>
+
   <% @labels.each do |label| %>
+    <div>
+<ul>
+<li class="label-grid">
     <label style="background-color: aquamarine"><%= label.label_title %></label><br>
     <% if label.user_id == current_user.id %>
-    <td><%= link_to '削除',  new_label_path(label.id), method: :delete , class: 'btn btn-danger'%></td><br>
+    <td><%= link_to '削除',  new_label_path(label.id), method: :delete , class: 'btn btn-danger'%></td>
+    <% else %>
+    <br>
     <% end %>
+    </li>
+    </ul>
     <% end %>
+</div>    
+    </div>
+    </body>
+    </html>

@@ -39,10 +39,12 @@ https://cacoo.com/diagrams/uujpqwMntAeHaqht/FCBAB
 
 
 ## 使用予定Gem
-* 後ほど記載
 * 'carrierwave'
 * 'mini_magick'
-
+* 'jquery-rails'
+* 'bootstrap', '~> 4.3.1'
+* 'ransack'
+* 'data-confirm-modal'
 
 ## 言語
 Ruby
