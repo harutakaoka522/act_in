@@ -5,8 +5,8 @@ RSpec.feature "スケジュール管理機能", type: :feature do
   before do
     visit root_path
     click_on "サインイン"
-    fill_in 'user[name]', with: 'test' 
-    fill_in 'user[email]', with: 'test@gmail.com' 
+    fill_in 'user[name]', with: 'test1234' 
+    fill_in 'user[email]', with: 'test1234@gmail.com' 
     fill_in 'user[password]', with: 'password' 
     fill_in 'user[password_confirmation]', with: 'password' 
     click_on "アカウント登録"
@@ -44,7 +44,6 @@ RSpec.feature "スケジュール管理機能", type: :feature do
    
     expect(page).to have_content 'test_label'
     expect(page).to have_content 'test_label2'
-    save_and_open_page
   end
 end
 

@@ -9,8 +9,8 @@ RSpec.feature "ユーザー管理機能", type: :feature do
   scenario "新規登録できること" do
     
     click_on "サインイン"
-    fill_in 'user[name]', with: 'test' 
-    fill_in 'user[email]', with: 'test@gmail.com' 
+    fill_in 'user[name]', with: 'test111' 
+    fill_in 'user[email]', with: 'test111@gmail.com' 
     fill_in 'user[password]', with: 'password' 
     fill_in 'user[password_confirmation]', with: 'password'
     click_on "アカウント登録"
@@ -19,8 +19,8 @@ RSpec.feature "ユーザー管理機能", type: :feature do
 
   scenario "ログアウト出来ること" do
     click_on "サインイン"
-    fill_in 'user[name]', with: 'test' 
-    fill_in 'user[email]', with: 'test@gmail.com' 
+    fill_in 'user[name]', with: 'test123' 
+    fill_in 'user[email]', with: 'test123@gmail.com' 
     fill_in 'user[password]', with: 'password' 
     fill_in 'user[password_confirmation]', with: 'password' 
     click_on "アカウント登録"
@@ -30,16 +30,16 @@ RSpec.feature "ユーザー管理機能", type: :feature do
 
   scenario "ユーザー情報が編集できること" do
     click_on "サインイン"
-    fill_in 'user[name]', with: 'test' 
-    fill_in 'user[email]', with: 'test@gmail.com' 
+    fill_in 'user[name]', with: 'test1234' 
+    fill_in 'user[email]', with: 'test1234@gmail.com' 
     fill_in 'user[password]', with: 'password' 
     fill_in 'user[password_confirmation]', with: 'password' 
     click_on "アカウント登録"
     
     click_on "編集"
     
-    fill_in 'user[name]', with: 'test' 
-    fill_in 'user[email]', with: 'test@gmail.com' 
+    fill_in 'user[name]', with: 'test1234' 
+    fill_in 'user[email]', with: 'test1234@gmail.com' 
     fill_in 'user[password]', with: '123456'
     fill_in 'user[password_confirmation]', with: '123456'
     
