@@ -45,7 +45,6 @@ RSpec.feature "ユーザー管理機能", type: :feature do
     
     
     click_on "更新する"
-    save_and_open_page
     expect(page).to have_content '更新しました' 
   end
 end

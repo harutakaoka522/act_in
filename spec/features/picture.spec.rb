@@ -43,7 +43,6 @@ RSpec.feature "写真機能", type: :feature do
     
     expect(page).to have_content '写真の編集をしました！'
     expect(page).to have_content 'test_title2'
-    save_and_open_page
   end
 
   scenario "写真が削除できること" do
@@ -61,7 +60,6 @@ RSpec.feature "写真機能", type: :feature do
  
     expect(page).not_to have_content 'test_title'
     expect(page).to have_content '写真を削除しました'
-   
   end
 end
 
