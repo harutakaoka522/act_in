@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
-
+  before_action :require_login
+  
   def index
     @q = Picture.ransack(params[:q])
     @pictures = Picture.all.order('created_at DESC')
@@ -57,5 +58,11 @@ class PicturesController < ApplicationController
 
   def picture_params
     params.require(:picture).permit(:image_title, :image_content, :image, :user_id, label_ids:[])
+  end
+
+  def require_login
+    unless logged_in?
+      redirect_to root_path, notice: 'ログインしてください'
+    end
   end
 end

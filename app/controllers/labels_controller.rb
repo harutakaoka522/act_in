@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  before_action :require_login
 
   def new
     @label = Label.new
@@ -30,5 +31,11 @@ class LabelsController < ApplicationController
 
   def label_params
     params.require(:label).permit(:label_title, :picture_id, :user_id)
+  end
+
+  def require_login
+    unless logged_in?
+      redirect_to root_path, notice: 'ログインしてください'
+    end
   end
 end
