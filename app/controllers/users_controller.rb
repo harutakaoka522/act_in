@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login
 
   def index
     render 'new'
@@ -43,5 +44,11 @@ end
 
   def user_params
     params.require(:user).permit(:name, :email, :user_image, :password, :password_confirmation)
+  end
+
+  def require_login
+    unless logged_in?
+      redirect_to root_path, notice: 'ログインしてください'
+    end
   end
 end
